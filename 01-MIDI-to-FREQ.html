@@ -13,10 +13,8 @@
     <p id="Hz"></p>
     <script language="javascript" type="text/javascript">
 
-    const rapidLib = RapidLib();
-    
+    const rapidLib = RapidLib();    
     const myRegression = new rapidLib.Regression();
-    
     const myData = [
         {
             input:  [48], // C3
@@ -44,17 +42,11 @@
 
     function midi2freq() {
         let newInput = parseFloat(document.getElementById("MIDI").value);
-        // console.log(newInput);
         let freq = myRegression.run([newInput])[0];
         
         document.getElementById("Hz").innerHTML=freq;
     }
 
-    // let newInput = [48];
-
-    
-
-  
-</script>
+    </script>
 </body>
 </html>
