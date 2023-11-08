@@ -38,6 +38,7 @@
         }
     ];
 
+    myRegression.setNumEpochs(100000);
     myRegression.train(myData);
 
     function midi2freq() {
@@ -46,7 +47,7 @@
         
         document.getElementById("Hz").innerHTML=freq;
     }
-
+// A4: 440 MIDI:69
     </script>
 </body>
 </html>
