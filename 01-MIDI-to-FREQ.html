@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src = "https://mimicproject.com/libs/rapidLib.js"></script>
+</head>
+<body>
+    <form>
+        <input type="text" id="MIDI" value="60">
+    </form>
+
+    <button onclick="midi2freq()">Convert!</button>
+    <p>Converted to Hz is:</p>
+    <p id="Hz"></p>
+    <script language="javascript" type="text/javascript">
+
+    const rapidLib = RapidLib();
+    
+    const myRegression = new rapidLib.Regression();
+    
+    const myData = [
+        {
+            input:  [48], // C3
+            output: [130.81]
+        },
+        {
+            input:  [54], // F#3
+            output: [185.00]
+        },
+        {
+            input:  [60], // C4
+            output: [261.63]
+        },
+        {
+            input:  [66], // F#4
+            output: [369.994]
+        },
+        {
+            input:  [72], // C5
+            output: [523.25]
+        }
+    ];
+
+    myRegression.train(myData);
+
+    function midi2freq() {
+        let newInput = parseFloat(document.getElementById("MIDI").value);
+        // console.log(newInput);
+        let freq = myRegression.run([newInput])[0];
+        
+        document.getElementById("Hz").innerHTML=freq;
+    }
+
+    // let newInput = [48];
+
+    
+
+  
+</script>
+</body>
+</html>
